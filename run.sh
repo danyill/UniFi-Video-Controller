@@ -81,6 +81,8 @@ if [[ ${DEBUG} -eq 1 ]]; then
   unifi_video_opts="--debug"
 fi
 
+echo "JSVC_EXTRA_OPTS=\"\$JSVC_EXTRA_OPTS -Xss1280k\"" | sudo tee -a /etc/default/unifi-video
+
 # Run the unifi-video daemon the unifi-video way
 echo -n "Starting unifi-video... "
 if /usr/sbin/unifi-video "${unifi_video_opts}" start; then
